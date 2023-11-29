@@ -17,12 +17,16 @@ function QrCode() {
     <div className="root">
       <div className="center">
         <h1 className="h1">React Qr Code</h1>
-        <QRCode
-          size={256}
-          style={{ height: "auto", maxWidth: "80%", width: "90%" }}
-          value={store}
-          viewBox={`0 0 256 256`}
-        />
+        {store === "" ? (
+          ". . ."
+        ) : (
+          <QRCode
+            size={256}
+            style={{ height: "auto", maxWidth: "80%", width: "90%" }}
+            value={store}
+            viewBox={`0 0 256 256`}
+          />
+        )}
         <input
           type="text"
           value={value}
@@ -34,7 +38,6 @@ function QrCode() {
           <button onClick={handleGenerate} type="button" className="btn">
             Generate
           </button>
-
         </div>
       </div>
     </div>
